@@ -1,0 +1,325 @@
+export const servicesData = [
+  {
+    title: "Web & App Development",
+    slug: "web-app-development",
+    short:
+      "Modern websites and web applications built for speed, trust and lead conversion.",
+    icon: "💻",
+    category: "Development",
+    overview:
+      "We build high-performance business websites, landing pages, web apps and scalable frontend/backend systems using modern technologies like React, Next.js, Node.js and MongoDB.",
+    features: [
+      "Custom Business Websites",
+      "React & Next.js Development",
+      "Landing Pages For Ads",
+      "Backend API Development",
+      "Mobile Responsive Design",
+      "Performance Optimization",
+      "SEO-Friendly Structure",
+      "Deployment & Maintenance",
+    ],
+    deliverables: [
+      "Modern UI/UX design",
+      "Responsive website or application",
+      "Admin/dashboard if required",
+      "Contact and enquiry forms",
+      "CRM lead capture integration",
+      "Basic SEO setup",
+    ],
+    bestFor: [
+      "Startups",
+      "Service businesses",
+      "Consultants",
+      "Agencies",
+      "Local businesses",
+    ],
+  },
+
+  {
+    title: "CRM Development",
+    slug: "crm-development",
+    short:
+      "Custom CRM systems to manage leads, clients, follow-ups, tasks and sales pipelines.",
+    icon: "📊",
+    category: "Business System",
+    overview:
+      "We create custom CRM solutions that help your team capture leads, assign enquiries, track follow-ups, manage clients and improve sales operations from one dashboard.",
+    features: [
+      "Lead Management",
+      "Client Management",
+      "Follow-Up Tracking",
+      "Role-Based Access",
+      "Team Assignment",
+      "Notes & Activity Timeline",
+      "Dashboard Analytics",
+      "Website Lead Integration",
+    ],
+    deliverables: [
+      "CRM dashboard",
+      "Lead capture module",
+      "Client management module",
+      "Follow-up system",
+      "Role-based login",
+      "Analytics and reports",
+    ],
+    bestFor: [
+      "Sales teams",
+      "Agencies",
+      "Travel companies",
+      "Real estate businesses",
+      "Service providers",
+    ],
+  },
+
+  {
+    title: "SEO Services",
+    slug: "seo-services",
+    short:
+      "Improve search visibility, technical health and organic traffic with SEO-focused strategy.",
+    icon: "🚀",
+    category: "Marketing",
+    overview:
+      "We help businesses improve their visibility on Google with technical SEO, on-page optimization, keyword strategy, content planning and performance improvements.",
+    features: [
+      "Keyword Research",
+      "Technical SEO",
+      "On-Page Optimization",
+      "Content Strategy",
+      "Speed Optimization",
+      "Schema Markup",
+      "Google Search Console Setup",
+      "SEO Reporting",
+    ],
+    deliverables: [
+      "SEO audit",
+      "Keyword plan",
+      "Meta title and description setup",
+      "Technical issue fixes",
+      "Content recommendations",
+      "Monthly performance report",
+    ],
+    bestFor: [
+      "Business websites",
+      "Local service providers",
+      "Doctors and clinics",
+      "Travel businesses",
+      "E-commerce stores",
+    ],
+  },
+
+  {
+    title: "Paid Advertising",
+    slug: "paid-advertising",
+    short:
+      "Google and Meta ad campaigns designed to generate high-quality business enquiries.",
+    icon: "📈",
+    category: "Marketing",
+    overview:
+      "We create and manage paid advertising campaigns for businesses that want faster leads through Google Ads, Meta Ads, landing pages and conversion tracking.",
+    features: [
+      "Google Search Ads",
+      "Meta & Instagram Ads",
+      "Landing Page Strategy",
+      "Conversion Tracking Setup",
+      "Audience Targeting",
+      "Campaign Optimization",
+      "Lead Form Integration",
+      "Performance Reporting",
+    ],
+    deliverables: [
+      "Campaign setup",
+      "Ad creatives guidance",
+      "Target audience setup",
+      "Lead form setup",
+      "Tracking setup",
+      "Weekly or monthly report",
+    ],
+    bestFor: [
+      "Lead generation",
+      "Service businesses",
+      "Local businesses",
+      "Coaches and consultants",
+      "Real estate and travel",
+    ],
+  },
+
+  {
+    title: "Lead Generation",
+    slug: "lead-generation",
+    short:
+      "Landing pages, ads, forms and CRM-connected systems to bring and manage qualified leads.",
+    icon: "🎯",
+    category: "Growth",
+    overview:
+      "We build complete lead generation systems where your landing page, ads, enquiry forms, WhatsApp and CRM work together to capture and manage leads smoothly.",
+    features: [
+      "Landing Page Funnels",
+      "CRM Integration",
+      "Lead Tracking Systems",
+      "High-Intent Audience Targeting",
+      "WhatsApp Click Tracking",
+      "Form Submission Tracking",
+      "Follow-Up Workflow",
+      "Conversion Optimization",
+    ],
+    deliverables: [
+      "Landing page",
+      "Lead form",
+      "CRM connection",
+      "Ad tracking setup",
+      "WhatsApp CTA setup",
+      "Lead report structure",
+    ],
+    bestFor: [
+      "Meta Ads campaigns",
+      "Google Ads campaigns",
+      "Service providers",
+      "Agencies",
+      "Consultants",
+    ],
+  },
+
+  {
+    title: "WhatsApp API & Automation",
+    slug: "whatsapp-api-automation",
+    short:
+      "Automate customer communication, enquiry follow-ups and business notifications.",
+    icon: "💬",
+    category: "Automation",
+    overview:
+      "We integrate WhatsApp API and automation flows to help your business send enquiry updates, lead notifications, customer follow-ups and important alerts.",
+    features: [
+      "WhatsApp API Integration",
+      "Lead Notification Automation",
+      "Customer Follow-Up Messages",
+      "Template Message Setup",
+      "CRM Integration",
+      "Admin Notifications",
+      "Status Updates",
+      "Workflow Automation",
+    ],
+    deliverables: [
+      "WhatsApp API setup",
+      "Message templates",
+      "CRM notification flow",
+      "Lead alert automation",
+      "Basic workflow setup",
+      "Testing and deployment",
+    ],
+    bestFor: [
+      "Lead-based businesses",
+      "Travel companies",
+      "Clinics",
+      "E-commerce brands",
+      "Service providers",
+    ],
+  },
+
+  {
+    title: "UI/UX Design",
+    slug: "ui-ux-design",
+    short:
+      "Clean, premium and conversion-focused interfaces for websites, apps and dashboards.",
+    icon: "🎨",
+    category: "Design",
+    overview:
+      "We design modern user interfaces that look premium, feel smooth and help users take action, whether it is a website, CRM, dashboard or mobile app.",
+    features: [
+      "User Research & Strategy",
+      "Wireframing & Prototyping",
+      "Modern Design Systems",
+      "Conversion-Focused Interfaces",
+      "Dashboard UI Design",
+      "Mobile Responsive Layouts",
+      "Landing Page Design",
+      "Brand Consistency",
+    ],
+    deliverables: [
+      "Website UI design",
+      "App screen design",
+      "Dashboard design",
+      "Wireframes",
+      "Design system",
+      "Responsive layouts",
+    ],
+    bestFor: [
+      "Websites",
+      "SaaS products",
+      "CRMs",
+      "Admin dashboards",
+      "Mobile apps",
+    ],
+  },
+
+  {
+    title: "Graphic Design",
+    slug: "graphic-design",
+    short:
+      "Professional brand creatives, social media posts and marketing designs.",
+    icon: "✨",
+    category: "Creative",
+    overview:
+      "We create visual designs that make your brand look professional across social media, ads, website graphics and marketing campaigns.",
+    features: [
+      "Logo Design",
+      "Brand Identity",
+      "Marketing Creatives",
+      "Social Media Graphics",
+      "Ad Creatives",
+      "Business Posters",
+      "Brochure Design",
+      "Brand Visuals",
+    ],
+    deliverables: [
+      "Logo or brand creatives",
+      "Social media posts",
+      "Ad creatives",
+      "Website banners",
+      "Marketing graphics",
+      "Editable files if required",
+    ],
+    bestFor: [
+      "Brands",
+      "Agencies",
+      "Social media pages",
+      "Local businesses",
+      "Startups",
+    ],
+  },
+
+  {
+    title: "Video Editing",
+    slug: "video-editing",
+    short:
+      "Short-form videos, reels and promotional edits for digital marketing growth.",
+    icon: "🎬",
+    category: "Creative",
+    overview:
+      "We edit short-form and promotional videos that help brands communicate better, look professional and improve engagement on social platforms.",
+    features: [
+      "Reels & Shorts",
+      "Promotional Videos",
+      "Motion Graphics",
+      "Brand Storytelling",
+      "Text Animation",
+      "Music & Sound Sync",
+      "Social Media Formatting",
+      "Ad Video Editing",
+    ],
+    deliverables: [
+      "Edited reels or shorts",
+      "Promotional video",
+      "Captions and text animation",
+      "Social media format exports",
+      "Brand-based editing style",
+      "Revision support",
+    ],
+    bestFor: [
+      "Instagram pages",
+      "Brands",
+      "Coaches",
+      "Agencies",
+      "Service businesses",
+    ],
+  },
+];

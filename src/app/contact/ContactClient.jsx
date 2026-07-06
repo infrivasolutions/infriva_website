@@ -1,0 +1,344 @@
+"use client";
+
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import Container from "@/components/ui/Container";
+import ContactForm from "@/components/sections/ContactForm";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Clock,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Sparkles,
+  Zap,
+} from "lucide-react";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 45 },
+  show: { opacity: 1, y: 0 },
+};
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -45 },
+  show: { opacity: 1, x: 0 },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 45 },
+  show: { opacity: 1, x: 0 },
+};
+
+const stagger = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const contactInfo = [
+  {
+    icon: Mail,
+    title: "Email Us",
+    value: "info@infrivasolutions.com",
+    note: "Share your business or project requirement anytime.",
+    href: "mailto:info@infrivasolutions.com",
+  },
+  {
+    icon: Phone,
+    title: "Call / WhatsApp",
+    value: "+91 82876 28307",
+    note: "Available for website, CRM and marketing discussions.",
+    href: "tel:+918287628307",
+  },
+  {
+    icon: MapPin,
+    title: "Location",
+    value: "India",
+    note: "Serving clients across India and worldwide.",
+    href: null,
+  },
+  {
+    icon: Clock,
+    title: "Response Time",
+    value: "Within 24 Hours",
+    note: "We reply quickly with a clear next step.",
+    href: null,
+  },
+];
+
+const points = [
+  "Free consultation",
+  "Clear project roadmap",
+  "Website + CRM planning",
+  "Fast response",
+];
+
+export default function ContactClient() {
+  return (
+    <>
+      <Navbar />
+
+      <main className="overflow-hidden bg-slate-950">
+        {/* Hero */}
+        <section className="relative min-h-[75vh] overflow-hidden bg-slate-950 pb-20 pt-36 text-white md:pt-44">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.45),transparent_35%),radial-gradient(circle_at_top_right,rgba(217,70,239,0.28),transparent_35%),linear-gradient(180deg,#020617_0%,#111827_55%,#1e1b4b_100%)]" />
+
+          <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:70px_70px]" />
+
+          <motion.div
+            animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-10 top-32 h-72 w-72 rounded-full bg-primary/30 blur-3xl"
+          />
+
+          <motion.div
+            animate={{ y: [0, 30, 0], x: [0, -20, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-10 right-10 h-80 w-80 rounded-full bg-fuchsia-500/25 blur-3xl"
+          />
+
+          <Container>
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              animate="show"
+              className="relative z-10 mx-auto max-w-5xl text-center"
+            >
+              <motion.span
+                variants={fadeUp}
+                transition={{ duration: 0.6 }}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-5 py-2 text-sm font-bold text-violet-100 backdrop-blur"
+              >
+                <motion.span
+                  animate={{ rotate: [0, 15, -15, 0] }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Sparkles className="h-4 w-4 text-violet-300" />
+                </motion.span>
+                Contact Infriva Solutions
+              </motion.span>
+
+              <motion.h1
+                variants={fadeUp}
+                transition={{ duration: 0.7 }}
+                className="mt-8 text-4xl font-black leading-tight tracking-tight md:text-7xl"
+              >
+                Let&apos;s Turn Your Idea Into A
+                <span className="block bg-gradient-to-r from-violet-300 via-fuchsia-300 to-white bg-clip-text text-transparent">
+                  Digital Growth System
+                </span>
+              </motion.h1>
+
+              <motion.p
+                variants={fadeUp}
+                transition={{ duration: 0.7 }}
+                className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-300 md:text-lg"
+              >
+                Whether you need a modern website, custom CRM, SEO, Meta Ads,
+                WhatsApp API, automation or a complete lead generation system,
+                our team is ready to help.
+              </motion.p>
+
+              <motion.div
+                variants={fadeUp}
+                transition={{ duration: 0.7 }}
+                className="mt-10 flex flex-col justify-center gap-4 sm:flex-row"
+              >
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 font-extrabold text-slate-950 shadow-2xl shadow-primary/20 transition hover:-translate-y-1 hover:bg-primary-light"
+                >
+                  Send Enquiry
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+
+                <a
+                  href="https://wa.me/918287628307"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/10 px-7 py-4 font-extrabold text-white backdrop-blur transition hover:-translate-y-1 hover:bg-white/15"
+                >
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  WhatsApp Us
+                </a>
+              </motion.div>
+
+              <motion.div
+                variants={stagger}
+                className="mt-10 flex flex-wrap justify-center gap-3"
+              >
+                {points.map((point) => (
+                  <motion.span
+                    key={point}
+                    variants={fadeUp}
+                    transition={{ duration: 0.5 }}
+                    whileHover={{ y: -4, scale: 1.05 }}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-200 backdrop-blur"
+                  >
+                    <CheckCircle2 className="h-4 w-4 text-green-300" />
+                    {point}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </motion.div>
+          </Container>
+        </section>
+
+        {/* Contact Info */}
+        <motion.section
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={stagger}
+          className="relative overflow-hidden bg-slate-950 py-24 text-white"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.24),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(217,70,239,0.18),transparent_36%),linear-gradient(180deg,#111827_0%,#0f172a_48%,#020617_100%)]" />
+
+          <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:70px_70px]" />
+
+          <motion.div
+            animate={{ x: [0, 35, 0], y: [0, -25, 0], scale: [1, 1.12, 1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -left-32 top-16 h-96 w-96 rounded-full bg-primary/20 blur-3xl"
+          />
+
+          <motion.div
+            animate={{ x: [0, -35, 0], y: [0, 25, 0], scale: [1, 1.15, 1] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -right-32 bottom-20 h-96 w-96 rounded-full bg-fuchsia-500/20 blur-3xl"
+          />
+
+          <Container>
+            <div className="relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+              <motion.div variants={fadeLeft} transition={{ duration: 0.7 }}>
+                <span className="inline-flex rounded-full border border-white/10 bg-white/10 px-5 py-2 text-sm font-bold text-violet-100 backdrop-blur">
+                  Get In Touch
+                </span>
+
+                <h2 className="mt-6 text-3xl font-black tracking-tight text-white md:text-5xl">
+                  Discuss your website, CRM or digital growth requirement.
+                </h2>
+
+                <p className="mt-5 text-base leading-8 text-slate-300">
+                  Fill the form and your enquiry will directly enter our lead
+                  system. We&apos;ll review your requirement and contact you
+                  with the next steps.
+                </p>
+
+                <motion.div
+                  whileHover={{ y: -8, scale: 1.01 }}
+                  className="mt-8 rounded-[2rem] border border-white/10 bg-white/10 p-6 text-white shadow-2xl shadow-black/10 backdrop-blur-xl"
+                >
+                  <div className="flex items-center gap-4">
+                    <motion.div
+                      animate={{ rotate: [0, 8, -8, 0] }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary"
+                    >
+                      <Zap className="h-7 w-7" />
+                    </motion.div>
+
+                    <div>
+                      <p className="text-sm text-violet-300">
+                        CRM Connected Enquiry
+                      </p>
+                      <h3 className="text-2xl font-black">
+                        Faster Lead Follow-up
+                      </h3>
+                    </div>
+                  </div>
+
+                  <p className="mt-5 text-sm leading-7 text-slate-300">
+                    Your website enquiry can be captured in CRM so our team can
+                    track, assign and follow up properly.
+                  </p>
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                variants={stagger}
+                className="grid gap-5 md:grid-cols-2"
+              >
+                {contactInfo.map((item) => {
+                  const Icon = item.icon;
+
+                  const CardContent = (
+                    <motion.div
+                      variants={fadeUp}
+                      transition={{ duration: 0.6 }}
+                      whileHover={{ y: -8, scale: 1.02 }}
+                      className="group h-full rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl transition hover:border-violet-300/40 hover:bg-white/15"
+                    >
+                      <div className="flex gap-4">
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-violet-200 transition group-hover:bg-primary group-hover:text-white">
+                          <Icon className="h-6 w-6" />
+                        </div>
+
+                        <div>
+                          <h3 className="font-black text-white">
+                            {item.title}
+                          </h3>
+
+                          <p className="mt-1 font-bold text-white/90">
+                            {item.value}
+                          </p>
+
+                          <p className="mt-2 text-sm leading-6 text-slate-300">
+                            {item.note}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+
+                  if (item.href) {
+                    return (
+                      <a key={item.title} href={item.href}>
+                        {CardContent}
+                      </a>
+                    );
+                  }
+
+                  return <div key={item.title}>{CardContent}</div>;
+                })}
+              </motion.div>
+            </div>
+          </Container>
+        </motion.section>
+
+        {/* CRM Contact Form */}
+        <motion.section
+          id="contact"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={fadeUp}
+          transition={{ duration: 0.7 }}
+          className="relative overflow-hidden bg-slate-950 text-white"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.22),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(217,70,239,0.16),transparent_36%)]" />
+
+          <div className="relative z-10">
+            <ContactForm />
+          </div>
+        </motion.section>
+      </main>
+
+      <Footer />
+    </>
+  );
+}
