@@ -110,7 +110,7 @@ export default function Navbar() {
                 </a>
 
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="group inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-primary/25 transition hover:-translate-y-0.5 hover:bg-primary-dark"
                 >
                   Free Consultation
@@ -176,7 +176,7 @@ export default function Navbar() {
                     </a>
 
                     <Link
-                      href="/#contact"
+                      href="/contact"
                       onClick={() => setOpen(false)}
                       className="rounded-2xl bg-primary px-4 py-3 text-center text-sm font-extrabold text-white transition hover:bg-primary-dark"
                     >
