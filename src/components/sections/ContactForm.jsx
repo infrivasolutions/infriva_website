@@ -129,189 +129,129 @@ export default function ContactForm() {
   };
 
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden bg-slate-950 py-20 text-white"
+  <form onSubmit={handleSubmit} className="space-y-4">
+    <div>
+      <label className="mb-2 block text-sm font-semibold text-slate-200">
+        Full Name *
+      </label>
+
+      <input
+        type="text"
+        name="clientName"
+        placeholder="Enter your name"
+        value={formData.clientName}
+        onChange={handleChange}
+        className="w-full rounded-xl border border-white/10 bg-black/25 px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-500 focus:bg-black/35 focus:ring-4 focus:ring-violet-500/10"
+      />
+    </div>
+
+    <div>
+      <label className="mb-2 block text-sm font-semibold text-slate-200">
+        Phone Number *
+      </label>
+
+      <input
+        type="tel"
+        name="phone"
+        inputMode="numeric"
+        placeholder="Enter your 10 digit mobile number"
+        value={formData.phone}
+        onChange={handleChange}
+        className="w-full rounded-xl border border-white/10 bg-black/25 px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-500 focus:bg-black/35 focus:ring-4 focus:ring-violet-500/10"
+      />
+    </div>
+
+    <div>
+      <label className="mb-2 block text-sm font-semibold text-slate-200">
+        Email Address
+      </label>
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        value={formData.email}
+        onChange={handleChange}
+        className="w-full rounded-xl border border-white/10 bg-black/25 px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-500 focus:bg-black/35 focus:ring-4 focus:ring-violet-500/10"
+      />
+    </div>
+
+    <div>
+      <label className="mb-2 block text-sm font-semibold text-slate-200">
+        What service do you need? *
+      </label>
+
+      <select
+        name="service"
+        value={formData.service}
+        onChange={handleChange}
+        className="w-full rounded-xl border border-white/10 bg-[#080d18] px-4 py-3.5 text-sm text-white outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10"
+      >
+        <option value="">Select a Service</option>
+
+        {services.map((item) => (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    <div>
+      <label className="mb-2 block text-sm font-semibold text-slate-200">
+        Budget
+      </label>
+
+      <select
+        name="budget"
+        value={formData.budget}
+        onChange={handleChange}
+        className="w-full rounded-xl border border-white/10 bg-[#080d18] px-4 py-3.5 text-sm text-white outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10"
+      >
+        <option value="">Select Budget</option>
+
+        {budgets.map((item) => (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    <div>
+      <label className="mb-2 block text-sm font-semibold text-slate-200">
+        Project Details
+      </label>
+
+      <textarea
+        name="message"
+        placeholder="Tell us briefly about your requirement..."
+        rows="4"
+        value={formData.message}
+        onChange={handleChange}
+        className="w-full resize-none rounded-xl border border-white/10 bg-black/25 px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-500 focus:bg-black/35 focus:ring-4 focus:ring-violet-500/10"
+      />
+    </div>
+
+    {error && (
+      <p className="rounded-xl border border-red-500/20 bg-red-500/10 p-3 text-sm font-medium text-red-300">
+        {error}
+      </p>
+    )}
+
+    {success && (
+      <p className="rounded-xl border border-green-500/20 bg-green-500/10 p-3 text-sm font-medium text-green-300">
+        {success}
+      </p>
+    )}
+
+    <button
+      type="submit"
+      disabled={loading}
+      className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-purple-500 px-5 py-4 font-black text-white shadow-lg shadow-violet-950/30 transition hover:from-violet-700 hover:to-purple-600 disabled:cursor-not-allowed disabled:opacity-60"
     >
-      <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-violet-600/20 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
-
-      <Container>
-        <SectionHeading
-          badge="Get Free Consultation"
-          title="Ready To Build A Digital System That Brings Leads?"
-          description="Tell us about your project. Your enquiry will directly reach our CRM so our team can follow up quickly."
-          light
-        />
-
-        <div className="relative mx-auto mt-12 grid max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-white/10 shadow-2xl backdrop-blur-xl lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="bg-gradient-to-br from-violet-600 to-fuchsia-600 p-8 md:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/80">
-              Infriva Solutions
-            </p>
-
-            <h3 className="mt-5 text-3xl font-bold leading-tight md:text-4xl">
-              Websites, CRMs, SEO & Automation for Growing Businesses.
-            </h3>
-
-            <p className="mt-5 text-white/85">
-              We do not just create websites. We build business systems that
-              help you capture, manage and convert leads.
-            </p>
-
-            <div className="mt-8 space-y-4 text-sm text-white/90">
-              <div className="rounded-2xl bg-white/15 p-4">
-                Website + CRM Lead Capture
-              </div>
-              <div className="rounded-2xl bg-white/15 p-4">
-                Meta Ads & Lead Generation Support
-              </div>
-              <div className="rounded-2xl bg-white/15 p-4">
-                WhatsApp API & Business Automation
-              </div>
-            </div>
-
-            <div className="mt-8 rounded-2xl bg-black/20 p-5">
-              <p className="text-sm text-white/75">Quick Contact</p>
-              <p className="mt-2 font-semibold">+91 82876 28307</p>
-              <p className="mt-1 font-semibold">info@infrivasolutions.com</p>
-            </div>
-          </div>
-
-          <form
-            onSubmit={handleSubmit}
-            className="grid gap-5 bg-white p-6 text-slate-900 md:p-10 md:grid-cols-2"
-          >
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Full Name *
-              </label>
-              <input
-                type="text"
-                name="clientName"
-                placeholder="Enter your name"
-                value={formData.clientName}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 outline-none transition focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100"
-              />
-            </div>
-
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Phone Number *
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="10 digit mobile number"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 outline-none transition focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100"
-              />
-            </div>
-
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Email Address
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="you@example.com"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 outline-none transition focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100"
-              />
-            </div>
-
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Company Name
-              </label>
-              <input
-                type="text"
-                name="company"
-                placeholder="Your business name"
-                value={formData.company}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 outline-none transition focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100"
-              />
-            </div>
-
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Service Required *
-              </label>
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 outline-none transition focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100"
-              >
-                <option value="">Select Service</option>
-                {services.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Budget
-              </label>
-              <select
-                name="budget"
-                value={formData.budget}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 outline-none transition focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100"
-              >
-                <option value="">Select Budget</option>
-                {budgets.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="md:col-span-2">
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Project Details
-              </label>
-              <textarea
-                name="message"
-                placeholder="Tell us about your business, website, CRM or marketing requirement..."
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 outline-none transition focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100"
-              />
-            </div>
-
-            {error && (
-              <p className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-600 md:col-span-2">
-                {error}
-              </p>
-            )}
-
-            {success && (
-              <p className="rounded-2xl border border-green-200 bg-green-50 p-4 text-sm font-medium text-green-700 md:col-span-2">
-                {success}
-              </p>
-            )}
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="rounded-2xl bg-violet-600 px-6 py-4 font-semibold text-white transition hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-70 md:col-span-2"
-            >
-              {loading ? "Submitting..." : "Send Enquiry"}
-            </button>
-          </form>
-        </div>
-      </Container>
-    </section>
-  );
+      {loading ? "Submitting..." : "Get Free Consultation"}
+    </button>
+  </form>
+);
 }
