@@ -127,9 +127,9 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
       <div>
-        <label className="mb-2 block text-sm font-semibold text-foreground">
+        <label className="mb-2 block text-sm font-semibold text-slate-200">
           Full Name *
         </label>
 
@@ -139,12 +139,12 @@ export default function ContactForm() {
           placeholder="Enter your name"
           value={formData.clientName}
           onChange={handleChange}
-          className="w-full rounded-2xl border border-border bg-surface-alt px-4 py-3.5 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/10"
+          className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-400 focus:bg-white/[0.09] focus:ring-4 focus:ring-violet-500/15"
         />
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-semibold text-foreground">
+        <label className="mb-2 block text-sm font-semibold text-slate-200">
           Phone Number *
         </label>
 
@@ -155,12 +155,12 @@ export default function ContactForm() {
           placeholder="Enter your 10 digit mobile number"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full rounded-2xl border border-border bg-surface-alt px-4 py-3.5 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/10"
+          className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-400 focus:bg-white/[0.09] focus:ring-4 focus:ring-violet-500/15"
         />
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-semibold text-foreground">
+        <label className="mb-2 block text-sm font-semibold text-slate-200">
           Email Address
         </label>
 
@@ -170,12 +170,12 @@ export default function ContactForm() {
           placeholder="Enter your email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full rounded-2xl border border-border bg-surface-alt px-4 py-3.5 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/10"
+          className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-400 focus:bg-white/[0.09] focus:ring-4 focus:ring-violet-500/15"
         />
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-semibold text-foreground">
+        <label className="mb-2 block text-sm font-semibold text-slate-200">
           Company Name
         </label>
 
@@ -185,20 +185,20 @@ export default function ContactForm() {
           placeholder="Enter your business name"
           value={formData.company}
           onChange={handleChange}
-          className="w-full rounded-2xl border border-border bg-surface-alt px-4 py-3.5 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/10"
+          className="w-full rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-400 focus:bg-white/[0.09] focus:ring-4 focus:ring-violet-500/15"
         />
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-semibold text-foreground">
-          What service do you need? *
+        <label className="mb-2 block text-sm font-semibold text-slate-200">
+          Service Required *
         </label>
 
         <select
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="w-full rounded-2xl border border-border bg-surface-alt px-4 py-3.5 text-sm text-foreground outline-none transition focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/10"
+          className="w-full rounded-xl border border-white/10 bg-[#15172a] px-4 py-3.5 text-sm text-white outline-none transition focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15"
         >
           <option value="">Select a Service</option>
 
@@ -211,7 +211,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-semibold text-foreground">
+        <label className="mb-2 block text-sm font-semibold text-slate-200">
           Budget
         </label>
 
@@ -219,7 +219,7 @@ export default function ContactForm() {
           name="budget"
           value={formData.budget}
           onChange={handleChange}
-          className="w-full rounded-2xl border border-border bg-surface-alt px-4 py-3.5 text-sm text-foreground outline-none transition focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/10"
+          className="w-full rounded-xl border border-white/10 bg-[#15172a] px-4 py-3.5 text-sm text-white outline-none transition focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15"
         >
           <option value="">Select Budget</option>
 
@@ -231,8 +231,8 @@ export default function ContactForm() {
         </select>
       </div>
 
-      <div>
-        <label className="mb-2 block text-sm font-semibold text-foreground">
+      <div className="sm:col-span-2">
+        <label className="mb-2 block text-sm font-semibold text-slate-200">
           Project Details
         </label>
 
@@ -242,18 +242,18 @@ export default function ContactForm() {
           rows="4"
           value={formData.message}
           onChange={handleChange}
-          className="w-full resize-none rounded-2xl border border-border bg-surface-alt px-4 py-3.5 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/10"
+          className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-400 focus:bg-white/[0.09] focus:ring-4 focus:ring-violet-500/15"
         />
       </div>
 
       {error && (
-        <p className="rounded-2xl border border-red-200 bg-red-50 p-3 text-sm font-medium text-red-600">
+        <p className="rounded-xl border border-red-400/20 bg-red-500/10 p-3 text-sm font-medium text-red-300 sm:col-span-2">
           {error}
         </p>
       )}
 
       {success && (
-        <p className="rounded-2xl border border-green-200 bg-green-50 p-3 text-sm font-medium text-green-700">
+        <p className="rounded-xl border border-emerald-400/20 bg-emerald-500/10 p-3 text-sm font-medium text-emerald-300 sm:col-span-2">
           {success}
         </p>
       )}
@@ -261,7 +261,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="flex w-full items-center justify-center rounded-2xl bg-primary px-5 py-4 font-black text-white shadow-lg shadow-primary/20 transition hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex w-full items-center justify-center rounded-xl bg-linear-to-r from-violet-600 via-purple-600 to-fuchsia-600 px-5 py-4 font-black text-white shadow-lg shadow-violet-950/40 transition hover:-translate-y-0.5 hover:from-violet-500 hover:via-purple-500 hover:to-fuchsia-500 disabled:cursor-not-allowed disabled:opacity-60 sm:col-span-2"
       >
         {loading ? "Submitting..." : "Get Free Consultation"}
       </button>
