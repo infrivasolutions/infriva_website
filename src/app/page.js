@@ -8,7 +8,6 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Projects from "@/components/sections/Projects";
 import Process from "@/components/sections/Process";
 import CTA from "@/components/sections/CTA";
-import ContactForm from "@/components/sections/ContactForm";
 
 export const metadata = {
   title: "Infriva Solutions | Website, CRM, SEO & IT Solutions Company",
@@ -49,16 +48,6 @@ const jsonLd = {
     "Infriva Solutions provides website development, CRM development, SEO, lead generation, WhatsApp API integration, automation and custom IT solutions.",
   areaServed: "India",
   sameAs: ["https://www.infrivasolutions.com/"],
-  services: [
-    "Website Development",
-    "CRM Development",
-    "SEO Services",
-    "Meta Ads",
-    "Lead Generation",
-    "WhatsApp API Integration",
-    "Business Automation",
-    "Custom Software Development",
-  ],
 };
 
 export default function Home() {
@@ -81,7 +70,6 @@ export default function Home() {
         <Projects />
         <Process />
         <CTA />
-        <ContactForm />
       </main>
 
       <Footer />

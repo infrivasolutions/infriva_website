@@ -1,7 +1,5 @@
-"use client";
-
+import Link from "next/link";
 import Container from "../ui/Container";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   BarChart3,
@@ -61,88 +59,48 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen overflow-hidden bg-slate-950 pb-14 pt-24 text-white md:pt-32"
     >
-      {/* Animated Background */}
+      {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.45),transparent_35%),radial-gradient(circle_at_top_right,rgba(217,70,239,0.28),transparent_35%),linear-gradient(180deg,#020617_0%,#111827_55%,#1e1b4b_100%)]" />
 
-      <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:70px_70px]" />
+      {/* Grid */}
+      <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:70px_70px]" />
 
-      <motion.div
-        animate={{
-          y: [0, -30, 0],
-          x: [0, 20, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute left-10 top-32 h-72 w-72 rounded-full bg-violet-500/30 blur-3xl"
-      />
-
-      <motion.div
-        animate={{
-          y: [0, 30, 0],
-          x: [0, -20, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute bottom-10 right-10 h-80 w-80 rounded-full bg-fuchsia-500/25 blur-3xl"
-      />
+      {/* Static glows */}
+      <div className="absolute left-10 top-32 h-72 w-72 rounded-full bg-violet-500/25 blur-3xl" />
+      <div className="absolute bottom-10 right-10 h-80 w-80 rounded-full bg-fuchsia-500/20 blur-3xl" />
 
       <Container>
         <div className="relative z-10 grid min-h-[calc(100vh-100px)] items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Left */}
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex flex-wrap items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 shadow-xl backdrop-blur"
-            >
+            <div className="inline-flex flex-wrap items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 shadow-xl backdrop-blur">
               <span className="flex h-2 w-2 rounded-full bg-green-400 shadow-lg shadow-green-400/50" />
+
               <span className="text-sm font-bold text-violet-100">
                 Full-Stack IT Solutions
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.7 }}
-              className="mt-6 max-w-4xl text-4xl font-black leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
-            >
+            <h1 className="mt-6 max-w-4xl text-4xl font-black leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
               We Build Digital Systems That
-              <span className="block bg-linear-to-r from-violet-300 via-fuchsia-300 to-white bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-violet-300 via-fuchsia-300 to-white bg-clip-text text-transparent">
                 Generate & Convert Leads
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="mt-5 max-w-xl text-base leading-7 text-slate-300 md:text-lg"
-            >
+            <p className="mt-5 max-w-xl text-base leading-7 text-slate-300 md:text-lg">
               Modern websites, custom CRMs, SEO, Meta Ads, WhatsApp API and
               automation systems for growing businesses.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
-              className="mt-8 flex flex-col gap-4 sm:flex-row"
-            >
-              <a
-                href="#contact"
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/contact"
                 className="group inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3.5 text-sm font-extrabold text-slate-950 shadow-2xl shadow-violet-500/25 transition hover:-translate-y-1 hover:bg-violet-50 md:text-base"
               >
                 Get Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5 transition group-hover:translate-x-1" />
-              </a>
+              </Link>
 
               <a
                 href="#projects"
@@ -150,14 +108,9 @@ export default function Hero() {
               >
                 View Our Work
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.7 }}
-              className="mt-7 flex flex-wrap gap-2.5"
-            >
+            <div className="mt-7 flex flex-wrap gap-2.5">
               {services.map((item) => (
                 <span
                   key={item}
@@ -167,36 +120,30 @@ export default function Hero() {
                   {item}
                 </span>
               ))}
-            </motion.div>
+            </div>
 
             <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
-              {heroStats.map((item, index) => {
+              {heroStats.map((item) => {
                 const Icon = item.icon;
 
                 return (
-                  <motion.div
+                  <div
                     key={item.label}
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
                     className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur transition hover:-translate-y-1 hover:bg-white/15"
                   >
                     <Icon className="h-6 w-6 text-violet-300" />
+
                     <h3 className="mt-3 text-xl font-black">{item.value}</h3>
+
                     <p className="mt-1 text-xs text-slate-300">{item.label}</p>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
           </div>
 
           {/* Right */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.8 }}
-            className="relative"
-          >
+          <div className="relative">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-violet-500/30 to-fuchsia-500/30 blur-2xl" />
 
             <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 shadow-2xl backdrop-blur-xl">
@@ -206,6 +153,7 @@ export default function Hero() {
                     <Zap className="h-4 w-4 text-yellow-300" />
                     Infriva Business OS
                   </p>
+
                   <p className="mt-1 text-xs text-slate-300">
                     Website + CRM + Marketing
                   </p>
@@ -217,7 +165,7 @@ export default function Hero() {
               </div>
 
               <div className="p-4 md:p-5">
-                <div className="rounded-3xl bg-linear-to-br from-violet-600 via-purple-600 to-fuchsia-600 p-5 shadow-2xl shadow-violet-900/20">
+                <div className="rounded-3xl bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 p-5 shadow-2xl shadow-violet-900/20">
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-sm font-semibold text-white/75">
@@ -237,12 +185,7 @@ export default function Hero() {
                   </div>
 
                   <div className="mt-6 h-3 overflow-hidden rounded-full bg-white/20">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: "78%" }}
-                      transition={{ delay: 0.8, duration: 1 }}
-                      className="h-full rounded-full bg-white"
-                    />
+                    <div className="h-full w-[78%] rounded-full bg-white" />
                   </div>
 
                   <div className="mt-5 grid grid-cols-3 gap-3">
@@ -264,15 +207,9 @@ export default function Hero() {
                 </div>
 
                 <div className="mt-4 grid gap-3">
-                  {dashboardCards.map((item, index) => (
-                    <motion.div
+                  {dashboardCards.map((item) => (
+                    <div
                       key={item.title}
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        delay: 0.7 + index * 0.12,
-                        duration: 0.5,
-                      }}
                       className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/10 p-4"
                     >
                       <div>
@@ -286,46 +223,34 @@ export default function Hero() {
                       <span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-violet-700">
                         {item.tag}
                       </span>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Floating Badges */}
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="absolute -left-5 top-14 hidden rounded-2xl border border-white/10 bg-white px-4 py-3 shadow-2xl md:block"
-            >
+            {/* Decorative badges */}
+            <div className="absolute -left-5 top-14 hidden rounded-2xl border border-white/10 bg-white px-4 py-3 shadow-2xl md:block">
               <p className="flex items-center gap-2 text-sm font-black text-slate-900">
                 <ShieldCheck className="h-4 w-4 text-violet-600" />
                 Secure
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity }}
-              className="absolute -right-5 top-52 hidden rounded-2xl border border-white/10 bg-white px-4 py-3 shadow-2xl md:block"
-            >
+            <div className="absolute -right-5 top-52 hidden rounded-2xl border border-white/10 bg-white px-4 py-3 shadow-2xl md:block">
               <p className="flex items-center gap-2 text-sm font-black text-slate-900">
                 <MessageCircle className="h-4 w-4 text-violet-600" />
                 WhatsApp
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity }}
-              className="absolute bottom-10 left-8 hidden rounded-2xl border border-white/10 bg-white px-4 py-3 shadow-2xl md:block"
-            >
+            <div className="absolute bottom-10 left-8 hidden rounded-2xl border border-white/10 bg-white px-4 py-3 shadow-2xl md:block">
               <p className="flex items-center gap-2 text-sm font-black text-slate-900">
                 <Rocket className="h-4 w-4 text-violet-600" />
                 Growth
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </Container>
     </section>
