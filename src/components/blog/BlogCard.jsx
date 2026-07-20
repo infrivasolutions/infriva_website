@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Clock3 } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Clock3 } from "lucide-react";
 
 const formatDate = (date) => {
   if (!date) return "";
@@ -18,74 +18,117 @@ const formatDate = (date) => {
   }).format(parsedDate);
 };
 
-export default function BlogCard({ blog }) {
+export default function BlogCard({ blog, dark = false }) {
   if (!blog) {
     return null;
   }
 
   const blogUrl = `/blog/${blog.slug}`;
-  const imageAlt = blog.imageAlt || blog.title || "Infriva Solutions blog";
+  const imageAlt =
+    blog.imageAlt || blog.title || "Infriva Solutions blog article";
+
   const formattedDate = formatDate(blog.publishedAt);
 
+  const articleClasses = dark
+    ? "border-white/10 bg-white/10 shadow-2xl shadow-black/20 hover:border-violet-400/40 hover:bg-white/[0.13]"
+    : "border-border bg-surface shadow-sm hover:border-primary/20 hover:shadow-xl";
+
+  const titleClasses = dark
+    ? "text-white group-hover:text-violet-200"
+    : "text-foreground group-hover:text-primary";
+
+  const descriptionClasses = dark ? "text-slate-300" : "text-muted";
+
+  const metaClasses = dark ? "text-slate-400" : "text-muted";
+
+  const readClasses = dark
+    ? "text-violet-300 group-hover:text-fuchsia-200"
+    : "text-primary group-hover:text-primary-dark";
+
   return (
-    <article className="group h-full overflow-hidden rounded-3xl border border-border bg-surface shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl">
+    <article
+      className={`group h-full overflow-hidden rounded-[2rem] border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 ${articleClasses}`}
+    >
       <Link
         href={blogUrl}
         aria-label={`Read ${blog.title}`}
         className="flex h-full flex-col"
       >
-        <div className="relative aspect-video overflow-hidden bg-surface-alt">
+        <div className="relative aspect-video overflow-hidden bg-slate-900">
           <Image
             src={blog.image}
             alt={imageAlt}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
 
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent" />
+
+          <div className="absolute inset-0 bg-violet-600/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
           {blog.category && (
-            <span className="absolute left-4 top-4 rounded-full border border-white/40 bg-white/90 px-3 py-1.5 text-xs font-semibold text-primary-dark shadow-sm backdrop-blur-sm">
+            <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-slate-950/75 px-3 py-1.5 text-xs font-bold text-violet-200 shadow-lg backdrop-blur-md">
               {blog.category}
             </span>
           )}
         </div>
 
         <div className="flex flex-1 flex-col p-6">
-          <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">
+          <div
+            className={`mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm ${metaClasses}`}
+          >
             {formattedDate && (
-              <time dateTime={blog.publishedAt}>{formattedDate}</time>
+              <time
+                dateTime={blog.publishedAt}
+                className="inline-flex items-center gap-1.5"
+              >
+                <CalendarDays
+                  size={15}
+                  className={dark ? "text-violet-300" : "text-primary"}
+                  aria-hidden="true"
+                />
+
+                {formattedDate}
+              </time>
             )}
 
             {blog.readTime && (
               <span className="inline-flex items-center gap-1.5">
-                <Clock3 size={15} aria-hidden="true" />
+                <Clock3
+                  size={15}
+                  className={dark ? "text-violet-300" : "text-primary"}
+                  aria-hidden="true"
+                />
+
                 {blog.readTime}
               </span>
             )}
           </div>
 
-          <h3 className="text-xl font-semibold leading-snug text-foreground transition-colors duration-300 group-hover:text-primary sm:text-2xl">
+          <h3
+            className={`text-xl font-extrabold leading-snug transition-colors duration-300 sm:text-2xl ${titleClasses}`}
+          >
             {blog.title}
           </h3>
 
           {blog.excerpt && (
-            <p className="mt-3 line-clamp-3 text-base leading-7 text-muted">
+            <p
+              className={`mt-3 line-clamp-3 text-base leading-7 ${descriptionClasses}`}
+            >
               {blog.excerpt}
             </p>
           )}
 
           <div className="mt-auto pt-6">
-            <span className="inline-flex items-center gap-2 font-semibold text-primary transition-colors duration-300 group-hover:text-primary-dark">
+            <span
+              className={`inline-flex items-center gap-2 font-bold transition-colors duration-300 ${readClasses}`}
+            >
               Read article
               <ArrowUpRight
                 size={18}
                 aria-hidden="true"
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
               />
             </span>
           </div>
