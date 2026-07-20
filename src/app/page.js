@@ -8,6 +8,7 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Projects from "@/components/sections/Projects";
 import Process from "@/components/sections/Process";
 import CTA from "@/components/sections/CTA";
+import BlogSection from "@/components/sections/BlogSection";
 
 export const metadata = {
   title: "Infriva Solutions | Website, CRM, SEO & IT Solutions Company",
@@ -67,6 +68,7 @@ export default function Home() {
         <TrustedSection />
         <Services />
         <WhyChooseUs />
+        <BlogSection/>
         <Projects />
         <Process />
         <CTA />
