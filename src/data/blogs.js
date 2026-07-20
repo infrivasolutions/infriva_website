@@ -20,7 +20,7 @@ export const blogs = [
     publishedAt: "2026-07-20",
     updatedAt: "2026-07-20",
 
-    image: "/images/blogs/crm-for-small-business.webp",
+    image: "/images/blogs/C:\Users\My\OneDrive\Desktop\Infriva_Solutions\infriva_website\public\images\blogs\crm-for-small-business.png",
 
     imageAlt:
       "CRM dashboard helping a small business manage leads and customers",
