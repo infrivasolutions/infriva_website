@@ -1,5 +1,7 @@
 import { Inter, Outfit } from "next/font/google";
 import Script from "next/script";
+import { Suspense } from "react";
+import MetaPixelPageView from "@/components/MetaPixelPageView";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,9 +17,88 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Infriva Solutions | Web Development, SEO & Lead Generation",
+  metadataBase: new URL("https://www.infrivasolutions.com"),
+
+  title: {
+    default: "Infriva Solutions | Website, CRM, SEO & IT Solutions Company",
+    template: "%s | Infriva Solutions",
+  },
+
   description:
-    "Infriva Solutions helps businesses grow through web development, SEO, paid advertising, lead generation, UI/UX design and digital marketing.",
+    "Infriva Solutions provides website development, custom CRM software, SEO, Meta Ads, lead generation, UI/UX design and business automation services.",
+
+  applicationName: "Infriva Solutions",
+
+  keywords: [
+    "Infriva Solutions",
+    "web development company",
+    "website development company India",
+    "custom CRM development",
+    "CRM software development",
+    "SEO services",
+    "Meta Ads management",
+    "lead generation company",
+    "business automation",
+    "UI UX design",
+  ],
+
+  authors: [
+    {
+      name: "Infriva Solutions",
+      url: "https://www.infrivasolutions.com",
+    },
+  ],
+
+  creator: "Infriva Solutions",
+  publisher: "Infriva Solutions",
+
+  category: "Technology",
+
+  openGraph: {
+    title: "Infriva Solutions | Website, CRM, SEO & IT Solutions",
+    description:
+      "Grow your business with high-performance websites, custom CRM systems, SEO, Meta Ads, lead generation and automation solutions.",
+    url: "https://www.infrivasolutions.com",
+    siteName: "Infriva Solutions",
+    locale: "en_IN",
+    type: "website",
+
+    images: [
+      {
+        url: "/images/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Infriva Solutions web development, CRM and digital marketing services",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Infriva Solutions | Website, CRM, SEO & IT Solutions",
+    description:
+      "Web development, custom CRM, SEO, Meta Ads, lead generation and business automation solutions.",
+    images: ["/images/og-image.webp"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -27,7 +108,7 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${outfit.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* Meta Pixel Code */}
+        {/* Meta Pixel */}
         <Script
           id="meta-pixel"
           strategy="afterInteractive"
@@ -56,7 +137,6 @@ export default function RootLayout({ children }) {
 
                 s=b.getElementsByTagName(e)[0];
                 s.parentNode.insertBefore(t,s);
-
               }(
                 window,
                 document,
@@ -79,7 +159,10 @@ export default function RootLayout({ children }) {
             alt=""
           />
         </noscript>
-        {/* End Meta Pixel Code */}
+
+        <Suspense fallback={null}>
+          <MetaPixelPageView />
+        </Suspense>
 
         {children}
       </body>
