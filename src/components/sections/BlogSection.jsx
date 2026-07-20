@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight, BookOpen } from "lucide-react";
 import BlogCard from "@/components/blog/BlogCard";
 import { blogs } from "@/data/blogs";
 
@@ -15,44 +16,63 @@ export default function BlogSection() {
   }
 
   return (
-    <section className="border-t border-border bg-surface-alt">
-      <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
-        <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl">
-            <span className="inline-flex rounded-full bg-primary-light px-4 py-2 text-sm font-semibold text-primary-dark">
-              Latest Insights
-            </span>
+    <section className="relative overflow-hidden border-y border-border bg-surface-alt">
+      {/* Background decoration */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-primary-light/70 blur-3xl"
+      />
 
-            <h2 className="mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-              Insights to grow your business
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-primary-light/40 blur-3xl"
+      />
+
+      <div className="container-custom section-padding relative">
+        {/* Section heading */}
+        <div className="mb-12 flex flex-col gap-7 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary-light px-4 py-2 text-sm font-semibold text-primary-dark">
+              <BookOpen size={16} aria-hidden="true" />
+              Latest Insights
+            </div>
+
+            <h2 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              Insights designed to help your{" "}
+              <span className="text-primary">business grow</span>
             </h2>
 
-            <p className="mt-4 max-w-2xl text-base leading-7 text-muted md:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-8 text-muted md:text-lg">
               Explore practical guides about web development, CRM software, SEO,
-              Meta Ads, lead generation and business automation.
+              Meta Ads, lead generation, automation, and digital business
+              growth.
             </p>
           </div>
 
           <Link
             href="/blog"
-            className="inline-flex w-fit items-center justify-center rounded-xl border border-primary px-5 py-3 font-semibold text-primary transition hover:bg-primary hover:text-white"
+            className="hidden w-fit items-center justify-center gap-2 rounded-xl border border-primary bg-transparent px-6 py-3 font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary hover:text-white hover:shadow-lg lg:inline-flex"
           >
             View all blogs
+            <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* Blog cards */}
+        <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {latestBlogs.map((blog) => (
             <BlogCard key={blog.id || blog.slug} blog={blog} />
           ))}
         </div>
 
-        <div className="mt-10 text-center md:hidden">
+        {/* Mobile and tablet button */}
+        <div className="mt-10 flex justify-center lg:hidden">
           <Link
             href="/blog"
-            className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary-dark"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-lg"
           >
             Explore all blogs
+            <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
       </div>
