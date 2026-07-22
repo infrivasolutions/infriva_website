@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays, Clock3 } from "lucide-react";
 
+const FALLBACK_IMAGE = "/images/blogs/blog-placeholder.webp";
+
 const formatDate = (date) => {
   if (!date) return "";
 
@@ -24,6 +26,12 @@ export default function BlogCard({ blog, dark = false }) {
   }
 
   const blogUrl = `/blog/${blog.slug}`;
+
+  const imageSrc =
+    typeof blog.image === "string" && blog.image.trim()
+      ? blog.image.trim()
+      : FALLBACK_IMAGE;
+
   const imageAlt =
     blog.imageAlt || blog.title || "Infriva Solutions blog article";
 
@@ -47,28 +55,34 @@ export default function BlogCard({ blog, dark = false }) {
 
   return (
     <article
-      className={`group h-full overflow-hidden rounded-[2rem] border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 ${articleClasses}`}
+      className={`group h-full overflow-hidden rounded-4xl border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 ${articleClasses}`}
     >
       <Link
         href={blogUrl}
         aria-label={`Read ${blog.title}`}
         className="flex h-full flex-col"
       >
-        <div className="relative aspect-video overflow-hidden bg-slate-900">
+        <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
           <Image
-            src={blog.image}
+            src={imageSrc}
             alt={imageAlt}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            className="z-0 object-cover transition-transform duration-700 group-hover:scale-110"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 z-10 bg-linear-to-t from-slate-950/80 via-slate-950/5 to-transparent"
+          />
 
-          <div className="absolute inset-0 bg-violet-600/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 z-10 bg-violet-600/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          />
 
           {blog.category && (
-            <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-slate-950/75 px-3 py-1.5 text-xs font-bold text-violet-200 shadow-lg backdrop-blur-md">
+            <span className="absolute left-4 top-4 z-20 rounded-full border border-white/15 bg-slate-950/75 px-3 py-1.5 text-xs font-bold text-violet-200 shadow-lg backdrop-blur-md">
               {blog.category}
             </span>
           )}
